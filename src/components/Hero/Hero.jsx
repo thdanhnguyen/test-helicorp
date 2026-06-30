@@ -58,7 +58,7 @@ export default function Hero() {
           <div className="hero__phone-wrap" ref={phoneRef}>
             <div className="hero__phone-badge">PHANTOM Edition</div>
             <img
-              src="/phone-hero.png"
+              src="/product/navy/navy-angle.png"
               alt="PHANTOM smartphone front view"
               className="hero__phone-img"
               width="420"
@@ -68,22 +68,6 @@ export default function Hero() {
                 e.currentTarget.style.display = 'none';
               }}
             />
-            <div className="hero__phone-placeholder" aria-hidden="true">
-              <svg viewBox="0 0 200 380" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="10" y="10" width="180" height="360" rx="28" fill="var(--color-bg-card)" stroke="var(--color-border)" strokeWidth="1.5"/>
-                <rect x="22" y="34" width="156" height="288" rx="6" fill="var(--color-bg-muted)"/>
-                <circle cx="100" cy="344" r="12" fill="var(--color-border)"/>
-                <rect x="72" y="14" width="56" height="10" rx="5" fill="var(--color-border)"/>
-                <rect x="120" y="44" width="46" height="60" rx="10" fill="var(--color-border)" opacity=".5"/>
-                <circle cx="133" cy="57" r="9" fill="var(--color-bg)" stroke="var(--color-text-sub)" strokeWidth="1"/>
-                <circle cx="133" cy="57" r="5" fill="var(--color-text-muted)" opacity=".3"/>
-                <circle cx="152" cy="57" r="9" fill="var(--color-bg)" stroke="var(--color-text-sub)" strokeWidth="1"/>
-                <circle cx="152" cy="57" r="5" fill="var(--color-text-muted)" opacity=".3"/>
-                <circle cx="133" cy="79" r="9" fill="var(--color-bg)" stroke="var(--color-text-sub)" strokeWidth="1"/>
-                <circle cx="133" cy="79" r="5" fill="var(--color-text-muted)" opacity=".3"/>
-                <circle cx="152" cy="79" r="6" fill="var(--color-border)"/>
-              </svg>
-            </div>
           </div>
         </div>
       </div>

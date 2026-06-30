@@ -3,8 +3,8 @@ import Navbar     from './components/Navbar/Navbar';
 import Hero       from './components/Hero/Hero';
 import ColorPicker from './components/ColorPicker/ColorPicker';
 import Features   from './components/FeaturesComponent/Features';
-import TechSpecs  from './components/TechSpecs';
-import Newsletter from './components/Newsletter';
+import TechSpecs  from './components/TechSpecs/TechSpecs';
+import Newsletter from './components/Newsletter/Newsletter';
 import Footer     from './components/Footer/Footer';
 import './index.css';
 
