@@ -1,10 +1,4 @@
-/* ============================================================
-   PHANTOM — Design System
-   ============================================================ */
-
-/* --- Google Font fallback & CSS Custom Properties --- */
 :root {
-  /* Colors */
   --color-bg:          #ffffff;
   --color-bg-muted:    #f5f5f7;
   --color-bg-card:     #f0f0f2;
@@ -17,10 +11,8 @@
   --color-cta:         #1d1d1f;
   --color-cta-hover:   #3a3a3c;
 
-  /* Typography */
   --font-sans:   'Inter', system-ui, -apple-system, sans-serif;
 
-  /* Spacing scale */
   --space-xs:   4px;
   --space-sm:   8px;
   --space-md:   16px;
@@ -29,27 +21,22 @@
   --space-2xl:  64px;
   --space-3xl:  96px;
 
-  /* Border radius */
   --radius-sm:  8px;
   --radius-md:  16px;
   --radius-lg:  24px;
   --radius-pill: 999px;
 
-  /* Shadows */
   --shadow-sm:  0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.06);
   --shadow-md:  0 4px 16px rgba(0,0,0,.08);
   --shadow-lg:  0 16px 48px rgba(0,0,0,.12);
 
-  /* Transitions */
   --ease-fast:   0.15s ease;
   --ease-normal: 0.25s ease;
   --ease-slow:   0.45s cubic-bezier(.4,0,.2,1);
 
-  /* Max width */
   --container:  1200px;
 }
 
-/* --- Dark Mode --- */
 [data-theme="dark"] {
   --color-bg:          #000000;
   --color-bg-muted:    #111111;
@@ -64,7 +51,6 @@
   --color-cta-hover:   #d1d1d6;
 }
 
-/* --- Reset --- */
 *,
 *::before,
 *::after {
@@ -117,7 +103,6 @@ ul {
   list-style: none;
 }
 
-/* --- Container --- */
 .container {
   width: 100%;
   max-width: var(--container);
@@ -131,7 +116,6 @@ ul {
   }
 }
 
-/* --- Utility classes --- */
 .section {
   padding-block: var(--space-3xl);
 }
@@ -173,7 +157,6 @@ ul {
   line-height: 1.6;
 }
 
-/* --- Buttons --- */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -210,7 +193,6 @@ ul {
   background: var(--color-bg-card);
 }
 
-/* --- Animations --- */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -234,7 +216,6 @@ ul {
   animation: fadeIn 0.5s var(--ease-normal) both;
 }
 
-/* --- Skeleton --- */
 @keyframes shimmer {
   0%   { background-position: -400px 0; }
   100% { background-position: 400px 0; }
@@ -247,14 +228,12 @@ ul {
   border-radius: var(--radius-sm);
 }
 
-/* --- Divider --- */
 .divider {
   height: 1px;
   background: var(--color-border);
   width: 100%;
 }
 
-/* --- Scrollbar (webkit) --- */
 ::-webkit-scrollbar {
   width: 6px;
 }
