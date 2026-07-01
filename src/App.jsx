@@ -8,6 +8,7 @@ import TechSpecs  from './components/TechSpecs/TechSpecs';
 import Newsletter from './components/Newsletter/Newsletter';
 import Footer     from './components/Footer/Footer';
 import CartDrawer from './components/CartDrawer/CartDrawer';
+import Chatbot    from './components/Chatbot/Chatbot';
 import './index.css';
 
 export default function App() {
@@ -37,6 +38,7 @@ export default function App() {
       </main>
       <Footer />
       <CartDrawer />
+      <Chatbot />
     </CartProvider>
   );
 }
