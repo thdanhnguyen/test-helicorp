@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useCart } from '../../contexts/CartContext';
 import './ColorPicker.css';
 
 const VARIANTS = [
@@ -8,6 +9,7 @@ const VARIANTS = [
     swatch: '#1a1a1a',
     bgGradient: 'linear-gradient(135deg, #2a2a2e 0%, #1a1a1f 100%)',
     image: '/product/black/black-combo.png',
+    price: 1099,
   },
   {
     id: 'arctic-silver',
@@ -15,6 +17,7 @@ const VARIANTS = [
     swatch: '#c0c0c8',
     bgGradient: 'linear-gradient(135deg, #d8d8e0 0%, #b8b8c4 100%)',
     image: '/product/silver/silver-combo.png',
+    price: 1099,
   },
   {
     id: 'navy',
@@ -22,6 +25,7 @@ const VARIANTS = [
     swatch: '#2d4a7a',
     bgGradient: 'linear-gradient(135deg, #3a5a8a 0%, #1e3358 100%)',
     image: '/product/navy/navy-combo.png',
+    price: 1099,
   },
   {
     id: 'rose-gold',
@@ -29,12 +33,14 @@ const VARIANTS = [
     swatch: '#8b2635',
     bgGradient: 'linear-gradient(135deg, #a83040 0%, #6e1e2a 100%)',
     image: '/product/rose-gold/rose-gold-combo.png',
+    price: 1099,
   },
 ];
 
 export default function ColorPicker() {
   const [active, setActive] = useState(VARIANTS[0].id);
   const activeVariant = VARIANTS.find((v) => v.id === active);
+  const { addToCart } = useCart();
 
   return (
     <section id="colors" className="color-picker section" aria-label="Choose your color">
@@ -74,9 +80,18 @@ export default function ColorPicker() {
           ))}
         </div>
 
-        <p className="color-picker__label" aria-live="polite">
-          {activeVariant.label}
-        </p>
+        <div className="color-picker__info">
+          <p className="color-picker__label" aria-live="polite">
+            {activeVariant.label}
+          </p>
+          <p className="color-picker__price">${activeVariant.price.toLocaleString()}</p>
+          <button 
+            className="btn btn--primary color-picker__add-btn"
+            onClick={() => addToCart(activeVariant)}
+          >
+            Add to Cart
+          </button>
+        </div>
       </div>
     </section>
   );

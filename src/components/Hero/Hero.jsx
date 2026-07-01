@@ -1,8 +1,17 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './Hero.css';
+
+const HERO_IMAGES = [
+  '/product/navy/navy-angle.png',
+  '/product/black/black-angle.png',
+  '/product/silver/silver-angle.png',
+  '/product/rose-gold/rose-gold-angle.png'
+];
 
 export default function Hero() {
   const phoneRef = useRef(null);
+  const [imgIdx, setImgIdx] = useState(0);
+  const [fade, setFade] = useState(false);
 
   useEffect(() => {
     const handleMove = (e) => {
@@ -24,11 +33,19 @@ export default function Hero() {
     };
   }, []);
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setImgIdx((prev) => (prev + 1) % HERO_IMAGES.length);
+    }, 3500);
+    
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section id="hero" className="hero section" aria-label="Hero">
       <div className="container hero__inner">
         <div className="hero__content">
-          <p className="section-tag hero__tag animate-fade-up">New — 2025</p>
+          <p className="section-tag hero__tag animate-fade-up">New — 2026</p>
 
           <h1 className="hero__headline animate-fade-up" style={{ animationDelay: '0.1s' }}>
             Beyond<br />Smart.
@@ -55,19 +72,48 @@ export default function Hero() {
 
         <div className="hero__visual">
           <div className="hero__glow" aria-hidden="true" />
-          <div className="hero__phone-wrap" ref={phoneRef}>
-            <div className="hero__phone-badge">PHANTOM Edition</div>
-            <img
-              src="/product/navy/navy-angle.png"
-              alt="PHANTOM smartphone front view"
-              className="hero__phone-img"
-              width="420"
-              height="520"
-              loading="eager"
-              onError={(e) => {
-                e.currentTarget.style.display = 'none';
+          <div 
+            className="hero__phone-wrap" 
+            ref={phoneRef}
+            style={{ 
+              position: 'relative', 
+              width: '100%', 
+              maxWidth: '420px', 
+              aspectRatio: '420/520',
+              overflow: 'hidden',
+              borderRadius: 'var(--radius-lg)'
+            }}
+          >
+            <div 
+              style={{
+                display: 'flex',
+                width: '100%',
+                height: '100%',
+                transform: `translateX(-${imgIdx * 100}%)`,
+                transition: 'transform 0.8s cubic-bezier(0.25, 1, 0.5, 1)'
               }}
-            />
+            >
+              {HERO_IMAGES.map((src, i) => (
+                <img
+                  key={src}
+                  src={src}
+                  alt={`PHANTOM smartphone color ${i}`}
+                  className="hero__phone-img"
+                  width="420"
+                  height="520"
+                  loading={i === 0 ? "eager" : "lazy"}
+                  style={{
+                    minWidth: '100%',
+                    height: '100%',
+                    objectFit: 'contain',
+                    boxShadow: 'none',
+                  }}
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                  }}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>

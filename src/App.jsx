@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { CartProvider } from './contexts/CartContext';
 import Navbar     from './components/Navbar/Navbar';
 import Hero       from './components/Hero/Hero';
 import ColorPicker from './components/ColorPicker/ColorPicker';
@@ -6,6 +7,7 @@ import Features   from './components/FeaturesComponent/Features';
 import TechSpecs  from './components/TechSpecs/TechSpecs';
 import Newsletter from './components/Newsletter/Newsletter';
 import Footer     from './components/Footer/Footer';
+import CartDrawer from './components/CartDrawer/CartDrawer';
 import './index.css';
 
 export default function App() {
@@ -24,7 +26,7 @@ export default function App() {
   const toggleTheme = () => setTheme((t) => (t === 'dark' ? 'light' : 'dark'));
 
   return (
-    <>
+    <CartProvider>
       <Navbar theme={theme} onThemeToggle={toggleTheme} />
       <main id="main-content" tabIndex="-1">
         <Hero />
@@ -34,6 +36,7 @@ export default function App() {
         <Newsletter />
       </main>
       <Footer />
-    </>
+      <CartDrawer />
+    </CartProvider>
   );
 }

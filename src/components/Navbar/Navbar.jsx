@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { useCart } from '../../contexts/CartContext';
 import './Navbar.css';
 
 const NAV_LINKS = [
@@ -11,6 +12,7 @@ export default function Navbar({ theme, onThemeToggle }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef(null);
+  const { itemCount, toggleDrawer } = useCart();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -88,6 +90,22 @@ export default function Navbar({ theme, onThemeToggle }) {
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
               </svg>
+            )}
+          </button>
+
+          <button
+            className="navbar__cart-btn"
+            onClick={toggleDrawer}
+            aria-label="Open shopping cart"
+            id="cart-icon-btn"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
+            {itemCount > 0 && (
+              <span className="navbar__cart-badge">{itemCount}</span>
             )}
           </button>
 
