@@ -26,6 +26,7 @@ export default function TechSpecs() {
               src="/product/silver/silver-side.png"
               alt="PHANTOM side profile"
               style={{ width: '100%', height: 'auto', display: 'block' }}
+              loading="lazy"
             />
           </div>
 

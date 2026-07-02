@@ -62,6 +62,7 @@ export default function ColorPicker() {
             <img
               src={activeVariant.image}
               alt={`PHANTOM in ${activeVariant.label}`}
+              loading="lazy"
             />
           </div>
         </div>
