@@ -287,3 +287,38 @@
     transform: translateY(0);
   }
 }
+
+.chatbot-skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  padding-top: var(--space-sm);
+}
+
+.chatbot-skeleton__row {
+  display: flex;
+}
+
+.chatbot-skeleton__row--bot {
+  justify-content: flex-start;
+}
+
+.chatbot-skeleton__bubble {
+  height: 38px;
+  border-radius: 18px;
+  border-bottom-left-radius: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--color-border) 25%,
+    var(--color-bg-card) 50%,
+    var(--color-border) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeletonShimmer 1.4s infinite;
+}
+
+@keyframes skeletonShimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+

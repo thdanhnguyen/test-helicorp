@@ -12,7 +12,6 @@ import Chatbot    from './components/Chatbot/Chatbot';
 import './index.css';
 
 export default function App() {
-  /* Theme state — persisted in localStorage */
   const [theme, setTheme] = useState(() => {
     const saved = localStorage.getItem('phantom-theme');
     if (saved) return saved;
@@ -42,3 +41,4 @@ export default function App() {
     </CartProvider>
   );
 }
+

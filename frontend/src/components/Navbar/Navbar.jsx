@@ -110,9 +110,9 @@ export default function Navbar({ theme, onThemeToggle }) {
           </button>
 
           <a
-            href="#newsletter"
+            href="#colors"
             className="btn btn--primary navbar__cta"
-            onClick={(e) => { e.preventDefault(); handleNavClick('#newsletter'); }}
+            onClick={(e) => { e.preventDefault(); handleNavClick('#colors'); }}
             id="navbar-buy-now-btn"
           >
             Buy Now
