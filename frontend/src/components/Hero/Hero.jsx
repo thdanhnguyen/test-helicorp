@@ -3,10 +3,10 @@ import { useScrollParallax } from '../../hooks/useScrollParallax';
 import './Hero.css';
 
 const HERO_IMAGES = [
-  '/product/navy/navy-angle.png',
-  '/product/black/black-angle.png',
-  '/product/silver/silver-angle.png',
-  '/product/rose-gold/rose-gold-angle.png'
+  '/product/navy/navy-angle.webp',
+  '/product/black/black-angle.webp',
+  '/product/silver/silver-angle.webp',
+  '/product/rose-gold/rose-gold-angle.webp'
 ];
 
 export default function Hero() {
@@ -106,6 +106,7 @@ export default function Hero() {
                   width="420"
                   height="520"
                   loading={i === 0 ? "eager" : "lazy"}
+                  fetchpriority={i === 0 ? "high" : "auto"}
                   style={{
                     minWidth: '100%',
                     height: '100%',
