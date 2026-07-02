@@ -1,0 +1,117 @@
+.color-picker {
+  background: var(--color-bg-muted);
+}
+
+.color-picker__header {
+  text-align: center;
+  margin-bottom: var(--space-2xl);
+}
+
+.color-picker__stage {
+  position: relative;
+  width: min(560px, 100%);
+  margin-inline: auto;
+  border-radius: var(--radius-lg);
+  background: var(--bg-gradient, linear-gradient(135deg, #2a2a2e, #1a1a1f));
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: background 0.4s ease;
+  min-height: 420px;
+}
+
+.color-picker__glow {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0.18;
+  filter: blur(60px);
+  transition: background 0.4s ease;
+}
+
+.color-picker__phone {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  animation: scaleIn 0.35s ease both;
+  transition: filter 0.35s ease;
+}
+
+.color-picker__phone img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  mix-blend-mode: multiply;
+}
+
+.color-picker__swatches {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
+  margin-top: var(--space-xl);
+}
+
+.color-picker__swatch {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--swatch, #ccc);
+  border: 1px solid rgba(128, 128, 128, 0.3);
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  transition: outline-color var(--ease-fast), transform var(--ease-fast);
+  cursor: pointer;
+}
+
+.color-picker__swatch:hover {
+  transform: scale(1.15);
+}
+
+.color-picker__swatch--active {
+  outline-color: var(--color-text);
+}
+
+.color-picker__info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-top: var(--space-xl);
+}
+
+.color-picker__label {
+  text-align: center;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  letter-spacing: 0.03em;
+  transition: opacity var(--ease-fast);
+}
+
+.color-picker__price {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--space-md);
+}
+
+.color-picker__add-btn {
+  padding-inline: 32px;
+  font-size: 15px;
+  border-radius: var(--radius-pill);
+}
+
+@media (max-width: 600px) {
+  .color-picker__stage {
+    min-height: 300px;
+    padding: var(--space-xl) var(--space-md);
+  }
+
+  .color-picker__phone {
+    width: 160px;
+  }
+}
