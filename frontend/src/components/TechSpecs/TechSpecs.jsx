@@ -23,7 +23,7 @@ export default function TechSpecs() {
         <div className="specs__layout">
           <div className="specs__phone" aria-hidden="true">
             <img
-              src="/product/silver/silver-side.png"
+              src="/product/silver/silver-side.webp"
               alt="PHANTOM side profile"
               style={{ width: '100%', height: 'auto', display: 'block' }}
               loading="lazy"

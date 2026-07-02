@@ -8,7 +8,7 @@ const VARIANTS = [
     label: 'Phantom Black',
     swatch: '#1a1a1a',
     bgGradient: 'linear-gradient(135deg, #2a2a2e 0%, #1a1a1f 100%)',
-    image: '/product/black/black-combo.png',
+    image: '/product/black/black-combo.webp',
     price: 1099,
   },
   {
@@ -16,7 +16,7 @@ const VARIANTS = [
     label: 'Arctic Silver',
     swatch: '#c0c0c8',
     bgGradient: 'linear-gradient(135deg, #d8d8e0 0%, #b8b8c4 100%)',
-    image: '/product/silver/silver-combo.png',
+    image: '/product/silver/silver-combo.webp',
     price: 1099,
   },
   {
@@ -24,7 +24,7 @@ const VARIANTS = [
     label: 'Navy',
     swatch: '#2d4a7a',
     bgGradient: 'linear-gradient(135deg, #3a5a8a 0%, #1e3358 100%)',
-    image: '/product/navy/navy-combo.png',
+    image: '/product/navy/navy-combo.webp',
     price: 1099,
   },
   {
@@ -32,7 +32,7 @@ const VARIANTS = [
     label: 'Rose Gold',
     swatch: '#8b2635',
     bgGradient: 'linear-gradient(135deg, #a83040 0%, #6e1e2a 100%)',
-    image: '/product/rose-gold/rose-gold-combo.png',
+    image: '/product/rose-gold/rose-gold-combo.webp',
     price: 1099,
   },
 ];
