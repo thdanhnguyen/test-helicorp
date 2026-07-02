@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { useScrollParallax } from '../../hooks/useScrollParallax';
 import './Hero.css';
 
 const HERO_IMAGES = [
@@ -10,8 +11,11 @@ const HERO_IMAGES = [
 
 export default function Hero() {
   const phoneRef = useRef(null);
+  const parallaxRef = useRef(null);
   const [imgIdx, setImgIdx] = useState(0);
   const [fade, setFade] = useState(false);
+
+  useScrollParallax(parallaxRef, { speed: 0.12 });
 
   useEffect(() => {
     const handleMove = (e) => {
@@ -59,8 +63,8 @@ export default function Hero() {
           </p>
 
           <div className="hero__actions animate-fade-up" style={{ animationDelay: '0.3s' }}>
-            <a href="#specs" className="btn btn--primary" id="hero-order-btn"
-              onClick={(e) => { e.preventDefault(); document.querySelector('#specs')?.scrollIntoView({ behavior: 'smooth' }); }}>
+            <a href="#colors" className="btn btn--primary" id="hero-order-btn"
+              onClick={(e) => { e.preventDefault(); document.querySelector('#colors')?.scrollIntoView({ behavior: 'smooth' }); }}>
               Order Now
             </a>
             <a href="#features" className="btn btn--ghost" id="hero-learn-btn"
@@ -70,7 +74,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="hero__visual">
+        <div className="hero__visual" ref={parallaxRef}>
           <div className="hero__glow" aria-hidden="true" />
           <div 
             className="hero__phone-wrap" 

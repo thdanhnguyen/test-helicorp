@@ -10,6 +10,8 @@ const INITIAL_MESSAGE = {
 
 export default function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
+  const [hasOpened, setHasOpened] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [messages, setMessages] = useState([INITIAL_MESSAGE]);
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
@@ -26,7 +28,18 @@ export default function Chatbot() {
     }
   }, [messages, isOpen, isTyping]);
 
-  const handleToggle = () => setIsOpen((prev) => !prev);
+  const handleToggle = () => {
+    if (!isOpen && !hasOpened) {
+      setHasOpened(true);
+      setIsLoading(true);
+      setMessages([]);
+      setTimeout(() => {
+        setIsLoading(false);
+        setMessages([INITIAL_MESSAGE]);
+      }, 1200);
+    }
+    setIsOpen((prev) => !prev);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -118,14 +131,25 @@ export default function Chatbot() {
         </div>
 
         <div className="chatbot-messages">
-          {messages.map((msg) => (
-            <div key={msg.id} className={`chat-bubble-wrapper ${msg.sender === 'user' ? 'chat-bubble-wrapper--user' : 'chat-bubble-wrapper--bot'}`}>
-              <div className={`chat-bubble ${msg.sender === 'user' ? 'chat-bubble--user' : 'chat-bubble--bot'}`}>
-                {msg.text}
+          {isLoading ? (
+            <div className="chatbot-skeleton">
+              <div className="chatbot-skeleton__row chatbot-skeleton__row--bot">
+                <div className="chatbot-skeleton__bubble" style={{ width: '72%' }} />
               </div>
-              <span className="chat-timestamp">{msg.timestamp}</span>
+              <div className="chatbot-skeleton__row chatbot-skeleton__row--bot">
+                <div className="chatbot-skeleton__bubble" style={{ width: '48%' }} />
+              </div>
             </div>
-          ))}
+          ) : (
+            messages.map((msg) => (
+              <div key={msg.id} className={`chat-bubble-wrapper ${msg.sender === 'user' ? 'chat-bubble-wrapper--user' : 'chat-bubble-wrapper--bot'}`}>
+                <div className={`chat-bubble ${msg.sender === 'user' ? 'chat-bubble--user' : 'chat-bubble--bot'}`}>
+                  {msg.text}
+                </div>
+                <span className="chat-timestamp">{msg.timestamp}</span>
+              </div>
+            ))
+          )}
           
           {isTyping && (
             <div className="chat-bubble-wrapper chat-bubble-wrapper--bot">
